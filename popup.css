@@ -1,0 +1,16 @@
+html {
+    width: 300px; /* Adjust width as needed */
+    height: 400px;
+  }
+  
+  /* Or style the body element: */
+  body {
+    width: 300px;
+    height: 400px;
+  }
+
+.tab-title {
+  width: 200px;
+  padding: 5px;
+  overflow: hidden;
+}
