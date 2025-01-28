@@ -1,0 +1,10 @@
+1. Fix urls
+    -> Switch tabs?
+        - save tab id
+
+2. Add folders
+    -> Delete folders
+
+3. Add individual delete function
+
+4. Mass save all tabs button

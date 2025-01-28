@@ -5,7 +5,8 @@
   "description": "Stores and manages open tabs",
   "permissions": [
     "activeTab",
-    "storage"
+    "storage",
+    "tabs"
   ],
   "action": {
     "default_popup": "popup.html"
