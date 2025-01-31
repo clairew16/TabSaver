@@ -18,12 +18,14 @@ function updateTabList() {
   
 document.getElementById('saveTab').addEventListener('click', () => {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-        const tab = tabs[0]; 
+        const tab = tabs[0];
+        const customTitle = prompt("Enter a custom title for this tab:", tab.title);
+        const titleToSave = customTitle || tab.title;
         chrome.storage.local.get(['savedTabs'], (result) => { 
         let savedTabs = result.savedTabs || [];
         const tabData = {
             url: tab.url,
-            title: tab.title,
+            title: titleToSave,
             tabId: tab.id
         }
         savedTabs.push(tabData); 
@@ -35,12 +37,12 @@ document.getElementById('saveTab').addEventListener('click', () => {
 
 document.getElementById('addAll').addEventListener('click', () => {
     chrome.tabs.query({}, (tabs) => {
-
         const allTabData = tabs.map(tab => ({ 
         url: tab.url, 
         title: tab.title, 
         id: tab.id 
         }));
+        console.log("all tabs: " + allTabData);
 
         chrome.storage.local.set({ savedTabs: allTabData });
         updateTabList();
